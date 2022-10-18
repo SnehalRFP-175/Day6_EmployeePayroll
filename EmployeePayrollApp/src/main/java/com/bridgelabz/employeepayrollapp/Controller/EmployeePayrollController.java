@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /*
-* Section 3 UC1- Use Lombok Library For Getter and Setter*/
+* Section 3 UC2- Using Lombok Library For Logging*/
 @RestController
 @RequestMapping("/empData")
 public class EmployeePayrollController {
