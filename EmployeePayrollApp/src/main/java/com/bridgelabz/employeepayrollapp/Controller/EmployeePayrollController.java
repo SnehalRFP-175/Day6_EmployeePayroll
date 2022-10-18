@@ -9,10 +9,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /*
-* Section 3 UC2- Using Lombok Library For Logging*/
+* Section 3 UC4- Database Setting as Environment Variable
+* */
 @RestController
 @RequestMapping("/empData")
 public class EmployeePayrollController {
@@ -38,8 +40,8 @@ public class EmployeePayrollController {
         return new ResponseEntity<ResponseDTO> (respDTO, HttpStatus.OK);
     }
 
-    @PostMapping(path = "/create", consumes = {"application/json"})
-    public ResponseEntity<ResponseDTO> addEmployeePayrollData(@RequestBody EmployeePayrollDTO empPayrollDTO)
+    @PostMapping(path = "/create")
+    public ResponseEntity<ResponseDTO> addEmployeePayrollData(@Valid @RequestBody EmployeePayrollDTO empPayrollDTO)
     {
         EmployeePayrollData employeePayrollData = null;
         employeePayrollData = employeePayrollService.createEmployeePayrollData(empPayrollDTO);
@@ -48,9 +50,9 @@ public class EmployeePayrollController {
     }
 
 
-    @PutMapping(path = "/update/{empId}", consumes = {"application/json"})
+    @PutMapping(path = "/update/{empId}")
     public ResponseEntity<ResponseDTO> updateEmployeePayrollData(@PathVariable("empId") int empId,
-                                                                 @RequestBody EmployeePayrollDTO empPayrollDTO)
+                                                                 @Valid @RequestBody EmployeePayrollDTO empPayrollDTO)
     {
         EmployeePayrollData employeePayrollData = null;
         employeePayrollData = employeePayrollService.updateEmployeePayrollData(empId,empPayrollDTO);
