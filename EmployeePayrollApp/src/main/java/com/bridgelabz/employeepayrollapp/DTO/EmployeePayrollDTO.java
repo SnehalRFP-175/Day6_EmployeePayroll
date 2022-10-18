@@ -3,14 +3,19 @@ package com.bridgelabz.employeepayrollapp.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Value;
 
-/*
-Using Lombok insted of getter setter and All Parameterized Constructor
- */
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+
+
 @Data
 @AllArgsConstructor
 public class EmployeePayrollDTO {
+
     public String name;
+
     public long salary;
 
     @Override
